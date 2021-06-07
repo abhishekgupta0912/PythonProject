@@ -1,6 +1,7 @@
+import re
+
 from flask import Flask, render_template, request, redirect, flash, url_for
 from flask_sqlalchemy import SQLAlchemy
-import re
 
 regemail = '^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$'
 # rephone = '[\+\d]?(\d{2,3}[-\.\s]??\d{2,3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4})'
@@ -38,7 +39,6 @@ def update_checke(id, email):
     res = True
     x = Data.query.all()
     for i in x:
-        print(i.id, i.email, email)
         if id == i.id:
             if i.email != email:
 
